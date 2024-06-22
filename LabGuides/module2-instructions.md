@@ -71,7 +71,7 @@ az provider register --namespace Microsoft.Kubernetes
 
 ### Task 2 - Define variables and create resource group
 
-1. Select the region closest to your location. Use '**eastus**' for United States workshops, '**westeurope**' for European workshops. Ask your instructor for other options in your region: @lab.DropDownList(region)[eastus,westus,canadacentral,westeurope,centralindia,australiaeast]
+1. Select the region closest to your location. Use '**eastus**' for United States workshops, '**westeurope**' for European workshops. Ask your instructor for other options in your region: [eastus,westus,canadacentral,westeurope,centralindia,australiaeast]
 
 2. Set your initials and define variables.
 
@@ -83,7 +83,7 @@ $INITIALS="abc"
 $YOUR_INITIALS="$($INITIALS)".ToLower()
 $AKS_RESOURCE_GROUP="azure-$($INITIALS)-rg"
 $AKS_IDENTITY="identity-$($INITIALS)"
-$LOCATION="@lab.Variable(region)"
+$LOCATION="westus"
 ```
 
 3. Get list of available VM sizes with 2 cores in your region.

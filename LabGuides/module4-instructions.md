@@ -26,7 +26,7 @@ For the exercises in this module, you'll need simple AKS cluster.
 
 ### Task 1 - Create an AKS cluster (or start an existing one)
 
-1. Select the region closest to your location. Use '**eastus**' for United States workshops, '**westeurope**' for European workshops. Ask your instructor for other options in your region: @lab.DropDownList(region)[eastus,westus,canadacentral,westeurope,centralindia,australiaeast]
+1. Select the region closest to your location. Use '**eastus**' for United States workshops, '**westeurope**' for European workshops. Ask your instructor for other options in your region: [eastus,westus,canadacentral,westeurope,centralindia,australiaeast]
 
 2. Define variables (update as needed)
 
@@ -37,7 +37,7 @@ $INITIALS="abc"
 ```PowerShell
 $YOUR_INITIALS="$($INITIALS)".ToLower()
 $AKS_RESOURCE_GROUP="azure-$($INITIALS)-rg"
-$LOCATION="@lab.Variable(region)"
+$LOCATION="westus"
 $VM_SKU="Standard_D2as_v5"
 $AKS_NAME="aks-$($INITIALS)"
 $NODE_COUNT="2"
