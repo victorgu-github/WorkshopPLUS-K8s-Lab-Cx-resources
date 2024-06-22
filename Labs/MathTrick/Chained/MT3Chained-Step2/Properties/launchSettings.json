@@ -1,0 +1,25 @@
+{
+  "profiles": {
+    "MathTrick3Step2": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5020"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true
+    },
+    "Bridge to Kubernetes": {
+      "commandName": "AzureDevSpacesLocal",
+      "launchBrowser": true
+    },
+    "Profile 1": {
+      "commandName": "AzureDevSpacesLocal",
+      "launchBrowser": true
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json"
+}

@@ -1,0 +1,14 @@
+repo: kizacr.azurecr.io
+namespace: chained
+platform: node
+tags:
+  mt3chainedweb: latest
+  mt3chainedstep1: latest
+  mt3chainedstep2: latest
+  mt3chainedstep2nodejs: latest
+  mt3chainedstep3: latest
+  mt3chainedstep4: latest
+  mt3chainedstep5: latest
+ikey: f7e8fc6b-b2af-4b2e-b657-31e03fdc549f
+buildinfo:
+  myapp1: "12"

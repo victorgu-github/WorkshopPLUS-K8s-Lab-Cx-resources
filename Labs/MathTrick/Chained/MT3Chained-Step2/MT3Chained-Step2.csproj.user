@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ActiveDebugProfile>Profile 1</ActiveDebugProfile>
+  </PropertyGroup>
+  <ItemGroup>
+    <DevSpacesDebugProfileUserSetting Include="Bridge to Kubernetes">
+      <ClusterSource>KUBECONFIG</ClusterSource>
+      <ClusterName>aks-kiz</ClusterName>
+      <Context>aks-kiz</Context>
+      <Namespace>chained</Namespace>
+      <ServiceName>mt3chained-step2-svc</ServiceName>
+      <RoutingHeader>
+      </RoutingHeader>
+      <LaunchUrl>http://20.242.244.103</LaunchUrl>
+      <LocalLaunchProfile>MathTrick3Step2</LocalLaunchProfile>
+    </DevSpacesDebugProfileUserSetting>
+    <DevSpacesDebugProfileUserSetting Include="Profile 1">
+      <ClusterSource>KUBECONFIG</ClusterSource>
+      <ClusterName>aks-kiz</ClusterName>
+      <Context>aks-kiz</Context>
+      <Namespace>chained</Namespace>
+      <ServiceName>mt3chained-step2-svc</ServiceName>
+      <RoutingHeader>
+      </RoutingHeader>
+      <LaunchUrl>http://20.242.244.103</LaunchUrl>
+      <LocalLaunchProfile>MathTrick3Step2</LocalLaunchProfile>
+    </DevSpacesDebugProfileUserSetting>
+  </ItemGroup>
+</Project>
