@@ -185,19 +185,19 @@ Before you can deploy your application, the images must exist in a container reg
 1. Change the current folder to **MathTrick**.
 
 ```PowerShell
-cd  C:\k8s\labs\MathTrick
+cd  C:\<path to repo>\labs\MathTrick
 ```
 
 2. Login into your ACR.
 
 ```PowerShell
-az acr login --name $ACR_NAME  --expose-token
+az acr login --name $ACR_NAME
 ```
 
 3. You can use ACR to build and push your images to the Azure Container Registry (itself). Run the script below. This operation will take 10-15 minutes because local base images are not cached between builds.
 
 ```powershell
-.\buildmt3chainedallacr.ps1 -acrname $ACR_NAME
+.\buildmt3chained-all.ps1 -acrname $ACR_NAME
 ```
 
 4. Verify all images have been built and pushed. Open your ACR in the Azure Portal.
@@ -206,10 +206,10 @@ az acr login --name $ACR_NAME  --expose-token
 
 ### Task 2 - Install a Helm Chart in your AKS cluster
 
-1. Change current folder to **C:\k8s\labs\MathTrick\Chained\Helm\mt3chained**.
+1. Change current folder to **C:\<path to repo>\labs\MathTrick\Chained\Helm\mt3chained**.
 
 ```PowerShell
-cd  C:\k8s\labs\MathTrick\Chained\Helm\mt3chained
+cd  C:\<path to repo>\labs\MathTrick\Chained\Helm\mt3chained
 ```
 
 2. Examine the contents of **values.yaml**. This file defines the parameters Helm will use when it creates a release.
@@ -266,7 +266,7 @@ The site should come up in the browser:
 
 Use Helm to apply updates to your application when **ANYTHING** changes, without keeping track of those changes.
 
-1. Open the **C:\k8s\labs\MathTrick\Chained\Helm\mt3chained\templates\mt3chained-web-dep.yaml** file in an editor. Go to the labels setion under "template" and add another label.
+1. Open the **C:\<path to repo>\labs\MathTrick\Chained\Helm\mt3chained\templates\mt3chained-web-dep.yaml** file in an editor. Go to the labels setion under "template" and add another label.
 
 ![](content/pod-label.png)
 
@@ -286,9 +286,9 @@ kubectl get pods -n chained
 
 **NOTE:** Notice only the single pod has been recreated, while all the others have remained unchanged.
 
-4. Open the **C:\k8s\labs\MathTrick\Chained\Helm\mt3chained\templates\mt3chained-cm.yaml** file in an editor. Change the **FAILURE_RATE** to a different whole number from 0 to 100. Save the file.
+4. Open the **C:\<path to repo>\labs\MathTrick\Chained\Helm\mt3chained\templates\mt3chained-cm.yaml** file in an editor. Change the **FAILURE_RATE** to a different whole number from 0 to 100. Save the file.
 
-5. Open the **C:\k8s\labs\MathTrick\Chained\Helm\mt3chained\templates\mt3chained-web-dep.yaml** file in an editor. Notice the **annotations** value.
+5. Open the **C:\<path to repo>\labs\MathTrick\Chained\Helm\mt3chained\templates\mt3chained-web-dep.yaml** file in an editor. Notice the **annotations** value.
 
 ![](content/template-annotation.png)
 
@@ -308,7 +308,7 @@ kubectl get pods -n chained
 
 ![](content/upgraded-pod-all.png)
 
-8. Open the **C:\k8s\labs\MathTrick\Chained\Helm\mt3chained\templates\steps\mt3chained-step2-dep.yaml** file in an editor. Notice the **containers** section.
+8. Open the **C:\<path to repo>\labs\MathTrick\Chained\Helm\mt3chained\templates\steps\mt3chained-step2-dep.yaml** file in an editor. Notice the **containers** section.
 
 ![](content/alternate-containers.png)
 
@@ -330,7 +330,7 @@ helm upgrade chaineddemo mt3chained --set platform=multi
 _*
 ```
 
-2. In the **C:\k8s\labs\MathTrick\Chained\Helm\mt3chained\templates\steps** folder, rename the file **mt3chained-step3-dep.yaml** to **\_mt3chained-step3-dep.yaml**.
+2. In the **C:\<path to repo>\labs\MathTrick\Chained\Helm\mt3chained\templates\steps** folder, rename the file **mt3chained-step3-dep.yaml** to **\_mt3chained-step3-dep.yaml**.
 
 3. Upgrade the chart.
 
@@ -346,7 +346,7 @@ kubectl get pods -n chained
 
 ![](content/upgraded-pods-nostep3.png)
 
-5. In the **C:\k8s\labs\MathTrick\Chained\Helm\mt3chained\templates\steps** folder, rename the file **\_mt3chained-step3-dep.yaml** back to **mt3chained-step3-dep.yaml**.
+5. In the **C:\<path to repo>\labs\MathTrick\Chained\Helm\mt3chained\templates\steps** folder, rename the file **\_mt3chained-step3-dep.yaml** back to **mt3chained-step3-dep.yaml**.
 6. Rename the **steps** folder to **\_steps**.
 
 7. Upgrade the chart.
@@ -399,7 +399,7 @@ helm upgrade chaineddemo mt3chained -n default --install
 
 If it's not installed, go ahead and install it. Restart Visual Studio 2019.
 
-3. Open the **MT3Chained-Step3** solution in the **C:\k8s\labs\MathTrick\Chained\MT3Chained-Step3** folder in Visual Studio 2019.
+3. Open the **MT3Chained-Step3** solution in the **C:\<path to repo>\labs\MathTrick\Chained\MT3Chained-Step3** folder in Visual Studio 2019.
 
 4. Run the project to make sure it's working correctly.
 
@@ -503,7 +503,7 @@ helm upgrade chaineddemo mt3chained -n default --install
 
 **NOTE:** If the extension is not installed, please install it. Restart VS Code.
 
-3. Open the **C:\k8s\labs\MathTrick\Chained\MT3Chained-Step2-NodeJS** folder.
+3. Open the **C:\<path to repo>\labs\MathTrick\Chained\MT3Chained-Step2-NodeJS** folder.
 
 4. Run the microservice locally. In the _Debug Console_ window, notice the local port the microservice is listening to. This will be used for redirection.
 
@@ -519,7 +519,7 @@ helm upgrade chaineddemo mt3chained -n default --install
 1. The _Bridge to Kubernetes_ extension in VS Code requires that the current namespce be set to the namespace you're working in. Cluster to use the correct namespace.
 
 ```PowerShell
-kubectl config set-context –-current –-namespace chained
+kubectl config set-context --current --namespace chained
 ```
 
 2. Open the _Command palette_ (Ctrl+Shift+p) and run the "Bridge to Kubernetes: Configure"
@@ -628,7 +628,7 @@ That's it! When the application runs, the SDK will collect all types of metrics 
 
 ![](content/ai-ikey.png)
 
-5. Open the **mt3chained-cm.yaml** file in the **C:\k8s\Labs\MathTrick\Chained\Helm\mt3chained\templates** folder.
+5. Open the **mt3chained-cm.yaml** file in the **C:\<path to repo>\Labs\MathTrick\Chained\Helm\mt3chained\templates** folder.
 
 ![](content/ai-configmap.png)
 

@@ -155,7 +155,7 @@ This Exercise demonstrates the use of a YAML file to create a pod declaratively.
 1. Change into the **Module1** folder
 
 ```PowerShell
-cd C:\k8s\labs\Module1
+cd <path to repo>\labs\Module1
 ```
 
 2. Use the YAML file provided to create a Pod. You may want to open the **simple-pod.yaml** file and review its contents.

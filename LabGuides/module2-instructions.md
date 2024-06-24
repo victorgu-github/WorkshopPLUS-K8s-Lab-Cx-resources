@@ -174,7 +174,6 @@ az aks create --resource-group $AKS_RESOURCE_GROUP `
               --network-plugin azure `
               --service-cidr 10.0.0.0/16 `
               --dns-service-ip 10.0.0.10 `
-              --docker-bridge-address 172.17.0.1/16 `
               --vnet-subnet-id $AKS_VNET_SUBNET_ID `
               --node-vm-size $VM_SKU `
               --nodepool-name system1 `
@@ -350,8 +349,8 @@ $env:TF_VAR_ACR="acr$($INITIALS)"
 2. Change current folder to **Main**
 
 ```PowerShell
-$ROOT_PATH="C:\k8s\Labs\Module2\Terraform"
-cd  C:\k8s\labs\Module2\Terraform\Main
+$ROOT_PATH="C:\<path to repo>\Labs\Module2\Terraform"
+cd  C:\<path to repo>\labs\Module2\Terraform\Main
 ```
 
 3. To initialize the Terraform directory it is necessary the **main.tf** file that is already created in the **Main** folder.
@@ -856,7 +855,7 @@ terraform apply -auto-approve
 ### Task 12 - Adjust the Auto Scaler for the lab
 
 1. The default settings for the AKS Auto Scaler are tuned for production environments, but take too long to scale up/down during demos and practice labs.
-2. Configure the cluster-wide auto scaling profile so all the node pool auto scalers are more responsive. Add the following code inside the resource **"azurerm_kubernetes_cluster" "aks" {}** module, for example, below the **default_node_pool {}**. For this purpouse replace **aks.tf** file in the **Main** folder with the content of **aks2.tf** in the **Resources** folder.
+2. Configure the cluster-wide auto scaling profile so all the node pool auto scalers are more responsive. Add the following code inside the resource **"azurerm_kubernetes_cluster" "aks" {}** module, for example, below the **default_node_pool {}**.
 
 ```JavaScript
   auto_scaler_profile {
@@ -865,10 +864,6 @@ terraform apply -auto-approve
     scale_down_unready          = "1m"
     skip_nodes_with_system_pods = true
   }
-```
-
-```PowerShell
-Get-Content (Join-Path $ROOT_PATH Resources\aks2.tf) | Set-Content (Join-Path $ROOT_PATH Main\aks.tf)
 ```
 
 3. Have Terraform plan and apply your changes.
@@ -891,7 +886,7 @@ In this exercise you will deploy different pods to various node pools in your cl
 1. Change current folder to **Module2**
 
 ```PowerShell
-cd  C:\k8s\labs\Module2
+cd  C:\<path to repo>\labs\Module2
 ```
 
 2. Deploy a workload with 6 replicas and no _Node Selector_.

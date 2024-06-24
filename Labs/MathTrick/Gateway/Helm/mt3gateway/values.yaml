@@ -1,4 +1,4 @@
-repo: kizacr.azurecr.io
+repo: acrtfdemo333.azurecr.io
 namespace: gateway
 platform: dotnet
 tags:

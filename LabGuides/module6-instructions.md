@@ -224,7 +224,7 @@ Tenant Id: $($TENANT_ID)
 2. Change current folder to **Module6**
 
 ```PowerShell
-cd  C:\k8s\labs\Module6
+cd  C:\<path to repo>\labs\Module6
 ```
 
 3. Open the file called called **spc.yaml**.

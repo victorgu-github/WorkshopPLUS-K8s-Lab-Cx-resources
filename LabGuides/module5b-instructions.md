@@ -84,10 +84,10 @@ cat C:\Users\pabloam\.ssh\id_rsa.pub
 
 ## Task 1 - Create a local git repo for the MT3Chained-Web folder
 
-1. Open the Windows Terminal and change into the **C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web** folder.
+1. Open the Windows Terminal and change into the **C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web** folder.
 
 ```PowerShell
-cd C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web
+cd C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web
 ```
 
 2. Initialize git and check in the source code.
@@ -231,7 +231,7 @@ You've created the service principal. Next, create secrets in the GitHub Reposit
 
 ## Task 1 - Create the GitHub Action
 
-1. To create a GitHub Action, you need to have a **workflow.yaml** in the **C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\\.github\workflows** directory. Now there is a file **workflow-web1.yaml** in the **C:\k8s\Labs\Module5\workflows** directory  with the following content:
+1. To create a GitHub Action, you need to have a **workflow.yaml** in the **C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\\.github\workflows** directory. Now there is a file **workflow-web1.yaml** in the **C:\<path to repo>\Labs\Module5\workflows** directory  with the following content:
 
 > **_NOTE:_** This workflow build, tag, and push the web image to your Azure Container Registry.
 
@@ -291,17 +291,17 @@ on:
 $ACR_SERVER_NAME=(az acr show -n $ACR_NAME --query loginServer -o tsv)
 ```
 
-3. Create the **\.github\workflows** folder in the path **C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web**.
+3. Create the **\.github\workflows** folder in the path **C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web**.
 
 ```PowerShell
-New-Item -Path "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows" -ItemType Directory
+New-Item -Path "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows" -ItemType Directory
 ```
 
 4. Replace the **workflow-web1.yaml** file with the correct values and create the right file **workflow.yaml** in the right path.
 
 ```PowerShell
-$Path1="C:\k8s\Labs\Module5\workflows"
-$Path2="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows"
+$Path1="C:\<path to repo>\Labs\Module5\workflows"
+$Path2="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows"
 $original_file = (Join-Path $Path1 workflow-web1.yaml)
 $destination_file = (Join-Path $Path2 workflow.yaml)
 (Get-Content $original_file) | Foreach-Object {
@@ -377,7 +377,7 @@ git push
 
 ## Task 1 - Deploy the new workflow.yaml
 
-1. To create a the new GitHub Action, you need to upgrade the **workflow.yaml** content in the **C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\\.github\workflows** directory. Now there is a file **workflow-web2.yaml** in the **C:\k8s\Labs\Module5\workflows** directory  with the following content:
+1. To create a the new GitHub Action, you need to upgrade the **workflow.yaml** content in the **C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\\.github\workflows** directory. Now there is a file **workflow-web2.yaml** in the **C:\<path to repo>\Labs\Module5\workflows** directory  with the following content:
 
 > **_NOTE:_** This workflow does the same as the last one, but with one more step to deploy the app in the AKS cluster.
 
@@ -444,11 +444,11 @@ jobs:
           namespace: ${{ env.NAMESPACE }}
 ```
 
-2. Copy the next script in the terminal to replace the **workflow-web2.yaml** file with the right values and copy the content to the right file called **(workflow.yaml)** in the right path **(C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\\.github\workflows)**.
+2. Copy the next script in the terminal to replace the **workflow-web2.yaml** file with the right values and copy the content to the right file called **(workflow.yaml)** in the right path **(C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\\.github\workflows)**.
 
 ```PowerShell
-$Path1="C:\k8s\Labs\Module5\workflows"
-$Path2="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows"
+$Path1="C:\<path to repo>\Labs\Module5\workflows"
+$Path2="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows"
 $original_file = (Join-Path $Path1 workflow-web2.yaml)
 $destination_file = (Join-Path $Path2 workflow.yaml)
 (Get-Content $original_file) | Foreach-Object {
@@ -467,7 +467,7 @@ $destination_file = (Join-Path $Path2 workflow.yaml)
 Copy the next script in your Windows Terminal.
 
 ```PowerShell
-$Path="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web"
+$Path="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web"
 (Get-Content (Join-Path $Path k8s-deployment.yaml)).replace("somecontainerrepo", $ACR_SERVER_NAME) | Set-Content (Join-Path $Path k8s-deployment.yaml)
 ```
 
@@ -629,7 +629,7 @@ In the previous exercise, you created a repository for the Web microservice. In 
 $GITHUB_ALIAS="ENTER YOUR GITHUB ALIAS"
 
 ForEach ($i in 1..5) {
-  cd "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step$i"
+  cd "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step$i"
   Write-Host "==========================MT3Chained-Step$i==========================" -ForeGround Green
   git init
   git add .
@@ -649,7 +649,7 @@ ForEach ($i in 1..5) {
 4. Initialize git, check in the source code and push it to GitHub for the **Math-Trick-3---Chained** repo.
 
 ```PowerShell
-cd "C:\k8s\Labs\MathTrick\Chained\Helm"
+cd "C:\<path to repo>\Labs\MathTrick\Chained\Helm"
 git init
 git add .
 git commit -m "Initial check-in"
@@ -661,7 +661,7 @@ git push -u origin main
 5. Initialize git, check in the source code and push it to GitHub for the **MathTrickCore** repo.
 
 ```PowerShell
-cd "C:\k8s\Labs\MathTrick\MathTrickCore"
+cd "C:\<path to repo>\Labs\MathTrick\MathTrickCore"
 git init
 git add .
 git commit -m "Initial check-in"
@@ -739,7 +739,7 @@ Create a github token to use in the workflow.yaml of each step repos to access t
 
 ## Task 5 - Create a new GitHub Action for the step repos
 
-Create the **workflow.yaml** in the the directory of all the step repos **\\.github\workflows\\** from the **workflow-steps1.yaml** file, in the directory **C:\k8s\Labs\Module5\workflows**, with the following content:
+Create the **workflow.yaml** in the the directory of all the step repos **\\.github\workflows\\** from the **workflow-steps1.yaml** file, in the directory **C:\<path to repo>\Labs\Module5\workflows**, with the following content:
 
 > **_NOTE:_** This workflow does the same as the first one for the web repo, but with one more step to access the *MathTrickCore* repo.
 
@@ -796,16 +796,16 @@ jobs:
 
 ```PowerShell
 ForEach ($i in 1..5) {
-  New-Item -Path "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step$i\.github\workflows" -ItemType Directory
+  New-Item -Path "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step$i\.github\workflows" -ItemType Directory
 }
 ```
 
-2. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-steps1.yaml** file in the path **C:\k8s\Labs\Module5\workflows** with the correct values and give it the correct file name **(workflow.yaml)** copying it in **\\.github\workflows\\** folder of each step repo (excluding the NodeJS step and web repo).
+2. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-steps1.yaml** file in the path **C:\<path to repo>\Labs\Module5\workflows** with the correct values and give it the correct file name **(workflow.yaml)** copying it in **\\.github\workflows\\** folder of each step repo (excluding the NodeJS step and web repo).
 
 ```PowerShell
 ForEach ($i in 1..5) {
-  $PathTemplate="C:\k8s\Labs\Module5\workflows"
-  $PathWorkflow="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step$i\.github\workflows"
+  $PathTemplate="C:\<path to repo>\Labs\Module5\workflows"
+  $PathWorkflow="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step$i\.github\workflows"
   $original_file = (Join-Path $PathTemplate workflow-steps1.yaml)
   $destination_file = (Join-Path $PathWorkflow workflow.yaml)
 
@@ -817,7 +817,7 @@ ForEach ($i in 1..5) {
     } | Set-Content $destination_file
 
   # Commit and push workflow
-  cd "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step$i\"
+  cd "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step$i\"
   Write-Host "==========================MT3Chained-Step$i==========================" -ForeGround Green
   git add .
   git commit -m "Add workflow.yaml"
@@ -892,7 +892,7 @@ az keyvault secret set --vault-name $KV_NAME --name "mt3chained-web-tag" --value
       - run: |
           az keyvault secret set --vault-name ${{ env.KV_NAME }} --name ${{ env.SECRET_NAME }} --value ${{ github.run_number }}
 ```
-4. Create the new **workflow.yaml** in the the directory of all the step repos **\\.github\workflows\\** from the **workflow-steps2.yaml** file, in the directory **C:\k8s\Labs\Module5\workflows**, with the following content:
+4. Create the new **workflow.yaml** in the the directory of all the step repos **\\.github\workflows\\** from the **workflow-steps2.yaml** file, in the directory **C:\<path to repo>\Labs\Module5\workflows**, with the following content:
 
 ```yaml
 name: <githubRepoName>
@@ -951,12 +951,12 @@ jobs:
           az keyvault secret set --vault-name ${{ env.KV_NAME }} --name ${{ env.SECRET_NAME }} --value ${{ github.run_number }}
 ```
 
-5. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-steps2.yaml** file in the path **C:\k8s\Labs\Module5\workflows** with the correct values and replace the file **(workflow.yaml)** in **\\.github\workflows\\** folder of each step repo (excluding the NodeJS step and web repo).
+5. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-steps2.yaml** file in the path **C:\<path to repo>\Labs\Module5\workflows** with the correct values and replace the file **(workflow.yaml)** in **\\.github\workflows\\** folder of each step repo (excluding the NodeJS step and web repo).
 
 ```PowerShell
 ForEach ($i in 1..5) {
-  $PathTemplate="C:\k8s\Labs\Module5\workflows"
-  $PathWorkflow="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step$i\.github\workflows"
+  $PathTemplate="C:\<path to repo>\Labs\Module5\workflows"
+  $PathWorkflow="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step$i\.github\workflows"
   $original_file = (Join-Path $PathTemplate workflow-steps2.yaml)
   $destination_file = (Join-Path $PathWorkflow workflow.yaml)
 
@@ -969,7 +969,7 @@ ForEach ($i in 1..5) {
     } | Set-Content $destination_file
 
   # Commit and push workflow
-  cd "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step$i\"
+  cd "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step$i\"
   Write-Host "==========================MT3Chained-Step$i==========================" -ForeGround Green
   git add .
   git commit -m "Add workflow.yaml"
@@ -995,7 +995,7 @@ ForEach ($i in 1..5) {
 
 1. The process is similar to the one followed in Task 7 above. We will create a workflow for the *MT3Chained Web* and the *MT3Chained-Step2-NodeJS* repos. This workflow's structure will be simpler than the structure of the ***step*** repositories, since these are self contained projects and don't require the obtention of dependencies of the *MathTrickCore* repo.
 
-2. To create the new **workflow.yaml** in the the directory **\\.github\workflows\\** of *MT3Chained-Web* and the *MT3Chained-Step2-NodeJS* repos you will use the **workflow-web3.yaml** file, in the directory **C:\k8s\Labs\Module5\workflows**. It has 3 main steps: checkout, login into Azure, and image build and upload, and finally store the tag as a secret in the Azure Key Vault.
+2. To create the new **workflow.yaml** in the the directory **\\.github\workflows\\** of *MT3Chained-Web* and the *MT3Chained-Step2-NodeJS* repos you will use the **workflow-web3.yaml** file, in the directory **C:\<path to repo>\Labs\Module5\workflows**. It has 3 main steps: checkout, login into Azure, and image build and upload, and finally store the tag as a secret in the Azure Key Vault.
 
 ```yaml
 name: <githubRepoName>
@@ -1043,11 +1043,11 @@ jobs:
           az keyvault secret set --vault-name ${{ env.KV_NAME }} --name ${{ env.SECRET_NAME }} --value ${{ github.run_number }}
 ```
 
-3. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-web3.yaml** file in the path **C:\k8s\Labs\Module5\workflows** with the correct values and replace the **(workflow.yaml)** file with the new content in the **\\.github\workflows\\** folder of web repo.
+3. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-web3.yaml** file in the path **C:\<path to repo>\Labs\Module5\workflows** with the correct values and replace the **(workflow.yaml)** file with the new content in the **\\.github\workflows\\** folder of web repo.
 
 ```PowerShell
-$Path1="C:\k8s\Labs\Module5\workflows"
-$Path2="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows"
+$Path1="C:\<path to repo>\Labs\Module5\workflows"
+$Path2="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows"
 $original_file = (Join-Path $Path1 workflow-web3.yaml)
 $destination_file = (Join-Path $Path2 workflow.yaml)
 (Get-Content $original_file) | Foreach-Object {
@@ -1062,7 +1062,7 @@ $destination_file = (Join-Path $Path2 workflow.yaml)
 4. Commit the changes and push them to the GitHub repository. This will also trigger the workflow execution.  
 
 ```PowerShell
-cd "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web"
+cd "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web"
 git add .
 git commit -m "Update workflow.yaml"
 git push
@@ -1071,14 +1071,14 @@ git push
 5. We'll repeat the same process for the *MT3Chained-Step2-NodeJS* repo. The definition of the workflow is basically the same. But first we need to create the **\\.github\workflows\\** folder of NodeJS repo.
 
 ```PowerShell
-New-Item -Path "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS\.github\workflows" -ItemType Directory
+New-Item -Path "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS\.github\workflows" -ItemType Directory
 ```
 
 6. Now, run the following script:
 
 ```PowerShell
-$Path1="C:\k8s\Labs\Module5\workflows"
-$Path2="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS\.github\workflows"
+$Path1="C:\<path to repo>\Labs\Module5\workflows"
+$Path2="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS\.github\workflows"
 $original_file = (Join-Path $Path1 workflow-web3.yaml)
 $destination_file = (Join-Path $Path2 workflow.yaml)
 (Get-Content $original_file) | Foreach-Object {
@@ -1092,7 +1092,7 @@ $destination_file = (Join-Path $Path2 workflow.yaml)
 7. Init and Commit the changes and push them to the GitHub repository (As you can see we have some steps more as this repo wasn't initialized before). This will also trigger the workflow execution.  
 
 ```PowerShell
-cd "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS"
+cd "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS"
 git init
 git add .
 git commit -m "Initial check-in"
@@ -1129,12 +1129,12 @@ GitHub does not support triggering child workflows from outside of a repository.
 
 The code shown above uses an action to perform the API request that will trigger the workflow_dispatch event for the required repository and workflow. The `workflow` and `repo` parameters determine where the event will be sent. The `token` parameter should be passed the PAT_GITHUB secret we have defined for our repositories.
 
-3. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-steps3.yaml** file in the path **C:\k8s\Labs\Module5\workflows** with the correct values and replace the **(workflow.yaml)** content in **\\.github\workflows\\** folder of all the step repos.
+3. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-steps3.yaml** file in the path **C:\<path to repo>\Labs\Module5\workflows** with the correct values and replace the **(workflow.yaml)** content in **\\.github\workflows\\** folder of all the step repos.
 
 ```PowerShell
 ForEach ($i in 1..5) {
-  $PathTemplate="C:\k8s\Labs\Module5\workflows"
-  $PathWorkflow="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step$i\.github\workflows"
+  $PathTemplate="C:\<path to repo>\Labs\Module5\workflows"
+  $PathWorkflow="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step$i\.github\workflows"
   $original_file = (Join-Path $PathTemplate workflow-steps3.yaml)
   $destination_file = (Join-Path $PathWorkflow workflow.yaml)
 
@@ -1148,11 +1148,11 @@ ForEach ($i in 1..5) {
 }
 ```
 
-4. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-web4.yaml** file in the path **C:\k8s\Labs\Module5\workflows** with the correct values and replace the **(workflow.yaml)** content in **\\.github\workflows\\** folder of web repo.
+4. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-web4.yaml** file in the path **C:\<path to repo>\Labs\Module5\workflows** with the correct values and replace the **(workflow.yaml)** content in **\\.github\workflows\\** folder of web repo.
 
 ```PowerShell
-$Path1="C:\k8s\Labs\Module5\workflows"
-$Path2="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows"
+$Path1="C:\<path to repo>\Labs\Module5\workflows"
+$Path2="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\.github\workflows"
 $original_file = (Join-Path $Path1 workflow-web4.yaml)
 $destination_file = (Join-Path $Path2 workflow.yaml)
 (Get-Content $original_file) | Foreach-Object {
@@ -1168,8 +1168,8 @@ $destination_file = (Join-Path $Path2 workflow.yaml)
 5. We'll repeat the same process for the *MT3Chained-Step2-NodeJS* repo as the web repo above. The definition of the workflow is basically the same.
 
 ```PowerShell
-$Path1="C:\k8s\Labs\Module5\workflows"
-$Path2="C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS\.github\workflows"
+$Path1="C:\<path to repo>\Labs\Module5\workflows"
+$Path2="C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS\.github\workflows"
 $original_file = (Join-Path $Path1 workflow-web4.yaml)
 $destination_file = (Join-Path $Path2 workflow.yaml)
 (Get-Content $original_file) | Foreach-Object {
@@ -1315,14 +1315,14 @@ jobs:
 13. But first we need to create the **\\.github\workflows\\** folder of Helm repo.
 
 ```PowerShell
-New-Item -Path "C:\k8s\Labs\MathTrick\Chained\Helm\.github\workflows" -ItemType Directory
+New-Item -Path "C:\<path to repo>\Labs\MathTrick\Chained\Helm\.github\workflows" -ItemType Directory
 ```
 
-14. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-helm.yaml** file in the path **C:\k8s\Labs\Module5\workflows** with the correct values and give it the correct file name **(workflow.yaml)** copying it in **\\.github\workflows\\** folder of Helm repo.
+14. Copy the following Azure PowerShell code in the Windows Terminal to replace the **workflow-helm.yaml** file in the path **C:\<path to repo>\Labs\Module5\workflows** with the correct values and give it the correct file name **(workflow.yaml)** copying it in **\\.github\workflows\\** folder of Helm repo.
 
 ```PowerShell
-$Path1="C:\k8s\Labs\Module5\workflows"
-$Path2="C:\k8s\Labs\MathTrick\Chained\Helm\.github\workflows"
+$Path1="C:\<path to repo>\Labs\Module5\workflows"
+$Path2="C:\<path to repo>\Labs\MathTrick\Chained\Helm\.github\workflows"
 $original_file = (Join-Path $Path1 workflow-helm.yaml)
 $destination_file = (Join-Path $Path2 workflow.yaml)
 (Get-Content $original_file) | Foreach-Object {
@@ -1332,10 +1332,10 @@ $destination_file = (Join-Path $Path2 workflow.yaml)
     } | Set-Content $destination_file
 ```
 
-15. Copy the following Azure PowerShell code in the Windows Terminal to replace the **values.yaml** file in the path **C:\k8s\Labs\MathTrick\Chained\Helm\mt3chained** with your correct Azure Container Registry name.
+15. Copy the following Azure PowerShell code in the Windows Terminal to replace the **values.yaml** file in the path **C:\<path to repo>\Labs\MathTrick\Chained\Helm\mt3chained** with your correct Azure Container Registry name.
 
 ```PowerShell
-$Path="C:\k8s\Labs\MathTrick\Chained\Helm\mt3chained"
+$Path="C:\<path to repo>\Labs\MathTrick\Chained\Helm\mt3chained"
 (Get-Content (Join-Path $Path values.yaml)).replace("kizacr.azurecr.io", $ACR_SERVER_NAME) | Set-Content (Join-Path $Path values.yaml)
 ```
 
@@ -1346,7 +1346,7 @@ $Path="C:\k8s\Labs\MathTrick\Chained\Helm\mt3chained"
 1. Once the Helm workflow is ready, we'll commit and push the changes. This will trigger the execution of the workflow. 
 
 ```PowerShell
-cd "C:\k8s\Labs\MathTrick\Chained\Helm"
+cd "C:\<path to repo>\Labs\MathTrick\Chained\Helm"
 git add .
 git commit -m "Create the workflow.yaml and update the values.yaml"
 git push
@@ -1362,7 +1362,7 @@ git push
 
 ```PowerShell
 ForEach ($i in 1..5) {
-  cd "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step$i\"
+  cd "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step$i\"
   Write-Host "==========================MT3Chained-Step$i==========================" -ForeGround Green
   git add .
   git commit -m "Add workflow.yaml"
@@ -1370,13 +1370,13 @@ ForEach ($i in 1..5) {
   Start-Sleep -s 60
 }
 
-cd "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS\"
+cd "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step2-NodeJS\"
 git add .
 git commit -m "Add workflow.yaml"
 git push
 Start-Sleep -s 60
 
-cd "C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web\"
+cd "C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web\"
 git add .
 git commit -m "Add workflow.yaml"
 git push

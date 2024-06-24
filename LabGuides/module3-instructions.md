@@ -84,7 +84,7 @@ The example Deployment below configures a MySQL instance to write its activities
 2. Change current folder to **Module3**
 
 ```PowerShell
-cd  C:\k8s\labs\Module3
+cd  C:\<path to repo>\labs\Module3
 ```
 
 3. Review the **mysql-initdb-cm.yaml** file. 
@@ -519,10 +519,10 @@ Ingress resources and 3rd-party Ingress Controllers can be used to centrally con
 
 ### Task 1 - Install NGinx Ingress Controller
 
-1. Change current folder to **C:\k8s\labs\Module3**.
+1. Change current folder to **C:\<path to repo>\labs\Module3**.
 
 ```PowerShell
-cd C:\k8s\labs\Module3
+cd C:\<path to repo>\labs\Module3
 ```
 
 2. Install **Nginx Ingress Controller** using **Helm**:
@@ -568,7 +568,7 @@ service/ingress-nginx-controller-admission   ClusterIP      10.0.244.155   <none
 
 This is the default NGinx Ingress Controller page.
 
-2. Review the contents of **C:\k8s\labs\Module3\default-backend.yaml** file in an editor. Notice the special property to specify the default backend. There's no _path_ property needed.
+2. Review the contents of **C:\<path to repo>\labs\Module3\default-backend.yaml** file in an editor. Notice the special property to specify the default backend. There's no _path_ property needed.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -603,10 +603,10 @@ kubectl apply -f default-backend.yaml -n default
 kubectl create ns dev
 ```
 
-2. Change current folder to **C:\k8s\labs\Module3**.
+2. Change current folder to **C:\<path to repo>\labs\Module3**.
 
 ```PowerShell
-cd C:\k8s\labs\Module3
+cd C:\<path to repo>\labs\Module3
 ```
 
 3. Apply the deployments and services.
@@ -616,7 +616,7 @@ kubectl apply -f blue-dep.yaml -f blue-svc.yaml -n dev
 kubectl apply -f red-dep.yaml -f red-svc.yaml -n dev
 ```
 
-4. Review the contents of **C:\k8s\labs\Module3\colors-ingress.yaml** file in an editor. Notice the _path_ setting to route traffic to the correct service.
+4. Review the contents of **C:\<path to repo>\labs\Module3\colors-ingress.yaml** file in an editor. Notice the _path_ setting to route traffic to the correct service.
 
 ```yaml
 apiVersion: networking.k8s.io/v1

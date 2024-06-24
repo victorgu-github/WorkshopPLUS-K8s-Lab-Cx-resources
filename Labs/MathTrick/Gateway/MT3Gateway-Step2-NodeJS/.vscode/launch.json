@@ -5,6 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/server.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "env": {
+        "GRPC_DNS_RESOLVER": "native",
+        "APPINSIGHTS_INSTRUMENTATIONKEY": "950301e2-21ea-4ac9-b333-5b76d19b898b"
+      }
+    },
+
+
+
+    {
       "type": "node",
       "request": "launch",
       "name": "Bridge to K8s with Kubernetes",

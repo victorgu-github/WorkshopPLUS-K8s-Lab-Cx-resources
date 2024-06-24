@@ -54,10 +54,10 @@ Use the same ACR and AKS cluster you created for Lab 4.
 
 ### Task 3 - Create local git repo and ssh key
 
-1. Open a shell and change into the **C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web** folder.
+1. Open a shell and change into the **C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web** folder.
 
 ```PowerShell
-cd C:\k8s\Labs\MathTrick\Chained\MT3Chained-Web
+cd C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Web
 ```
 
 2. Initialize git and check in the source code.
@@ -531,10 +531,10 @@ In the previous exercise, you created an Azure DevOps Project and a repository f
 
 ![](content/repos-all.png)
 
-8. Open a shell and change into the **C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step1** folder.
+8. Open a shell and change into the **C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step1** folder.
 
 ```PowerShell
-cd C:\k8s\Labs\MathTrick\Chained\MT3Chained-Step1
+cd C:\<path to repo>\Labs\MathTrick\Chained\MT3Chained-Step1
 ```
 
 9. Initialize git and check in the source code.
@@ -566,10 +566,10 @@ git commit -m "Initial check-in"
 ![](content/repo-helm.png)
 
 
-17. Change the folder to **C:\k8s\Labs\MathTrick\MathTrickCore**.
+17. Change the folder to **C:\<path to repo>\Labs\MathTrick\MathTrickCore**.
 
 ```PowerShell
-cd C:\k8s\Labs\MathTrick\MathTrickCore
+cd C:\<path to repo>\Labs\MathTrick\MathTrickCore
 ```
 
 18. Repeat the check in/push process from above to the get the code into the **MathTrickCore** repo.
@@ -599,7 +599,7 @@ cd C:\k8s\Labs\MathTrick\MathTrickCore
    
 9. Click the "Validate and Continue" button. 
 
-10. You're going to replace the contents of the pipeline yaml with a template included in this lab.  Open the file **C:\k8s\Labs\Module5\pipelines\build-pipeline-step1.yaml** in an editor.
+10. You're going to replace the contents of the pipeline yaml with a template included in this lab.  Open the file **C:\<path to repo>\Labs\Module5\pipelines\build-pipeline-step1.yaml** in an editor.
 
 11. The first part of the file lists which branch triggers the build.
 
@@ -806,7 +806,7 @@ az keyvault secret set --vault-name $KV_NAME --name "mt3chained-web-tag" --value
         inlineScript: |
           az keyvault secret set --vault-name "$(vaultName)" --name "$(secretTagName)" --value "$(tag)"
 ```
-4. Your pipeline should look very similar to the complete version in **C:\k8s\Labs\Module5\pipelines\build-pipeline-step1-complete.yaml**.
+4. Your pipeline should look very similar to the complete version in **C:\<path to repo>\Labs\Module5\pipelines\build-pipeline-step1-complete.yaml**.
 
 5. Save and run the pipeline.
 
@@ -831,7 +831,7 @@ az keyvault secret set --vault-name $KV_NAME --name "mt3chained-web-tag" --value
 ### Task 5 - Build the Pipelines for the Web and NodeJS microservice
 
 1. To avoid confusion, **delete** the Build and Release pipelines created for the *MT3Chained Web* project in the first exercise of this lab:  <u>**Exercise: Create Basic CI/CD Pipeline with Azure DevOps**</u>
-2. Repeat the process you followed in Task 2 above, by creating a new Build pipeline for *MT3Chained Web* project, but this time use the **C:\k8s\Labs\Module5\pipelines\build-pipeline-web-complete.yaml** file as your starting template.
+2. Repeat the process you followed in Task 2 above, by creating a new Build pipeline for *MT3Chained Web* project, but this time use the **C:\<path to repo>\Labs\Module5\pipelines\build-pipeline-web-complete.yaml** file as your starting template.
 3. Notice this file is much simpler than the microservices ones because it only uses a single repo.  Since the default paths are used, the root folder is defined by a different variable called **$(Build.SourcesDirectory)**
 4. Update the variables section with your setting:
 
@@ -850,7 +850,7 @@ variables:
 
 5. When complete, verify the images in your  Azure Container Registry and the tags in your Azure Key Vault.
    
-6. Repeat the process for the NodeJS project by using the **C:\k8s\Labs\Module5\pipelines\build-pipeline-step2-nodejs-complete.yaml** as your template.
+6. Repeat the process for the NodeJS project by using the **C:\<path to repo>\Labs\Module5\pipelines\build-pipeline-step2-nodejs-complete.yaml** as your template.
 
 7. When all the pipeline have run at least once, you can verify their status by selecting "Pipelines" and clicking the *All* link on top.
 

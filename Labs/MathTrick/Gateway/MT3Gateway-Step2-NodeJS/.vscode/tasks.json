@@ -7,7 +7,7 @@
       "resource": "mt3gateway-step2-svc",
       "resourceType": "service",
       "ports": [3000],
-      "targetCluster": "kizaks2",
+      "targetCluster": "aks-tfdemo333",
       "targetNamespace": "gateway",
       "useKubernetesServiceEnvironmentVariables": false
     }
