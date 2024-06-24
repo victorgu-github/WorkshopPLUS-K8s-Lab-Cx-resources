@@ -4,7 +4,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
   location             = "West US"
   resource_group_name  = var.AKS_RESOURCE_GROUP
   dns_prefix           = var.AKS_CLUSTER
-  azure_policy_enabled = true
 
   default_node_pool {
     name                = "systempool"
