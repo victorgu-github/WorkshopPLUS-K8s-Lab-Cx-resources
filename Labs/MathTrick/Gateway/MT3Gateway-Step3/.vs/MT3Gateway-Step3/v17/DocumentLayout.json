@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\coderepo\\azure-containers-prj\\WorkshopPLUS-K8s-Lab-Cx-resources\\Labs\\MathTrick\\Gateway\\MT3Gateway-Step3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C93ED619-5A88-44EF-AAC8-F733CF0335D6}|MT3Gateway-Step3.csproj|c:\\coderepo\\azure-containers-prj\\workshopplus-k8s-lab-cx-resources\\labs\\mathtrick\\gateway\\mt3gateway-step3\\services\\calculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C93ED619-5A88-44EF-AAC8-F733CF0335D6}|MT3Gateway-Step3.csproj|solutionrelative:services\\calculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CalculationService.cs",
+              "DocumentMoniker": "C:\\coderepo\\azure-containers-prj\\WorkshopPLUS-K8s-Lab-Cx-resources\\Labs\\MathTrick\\Gateway\\MT3Gateway-Step3\\Services\\CalculationService.cs",
+              "RelativeDocumentMoniker": "Services\\CalculationService.cs",
+              "ToolTip": "C:\\coderepo\\azure-containers-prj\\WorkshopPLUS-K8s-Lab-Cx-resources\\Labs\\MathTrick\\Gateway\\MT3Gateway-Step3\\Services\\CalculationService.cs",
+              "RelativeToolTip": "Services\\CalculationService.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T17:55:30.868Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
